@@ -21,7 +21,23 @@ public class MineSweeper {
         this.revealed = new boolean[numRows][numCols]; //Hücrelerin açılıp açıladığını kontrol eder.
         initializeBoard();
         placeMines(); // Mayınların tahtaya rastgele yerleştirilmesini sağlayan metot.
+        System.out.println("Mayınların Konumu:");
+        printMineLocations();
+        System.out.println("========================================");
         printBoard();
+    }
+    private void printMineLocations() {
+        for (int i = 0; i < numRows; i++) {
+            for (int k = 0; k < numCols; k++) {
+                if (board[i][k] == '*') {
+                    System.out.print("*");
+                } else {
+                    System.out.print("-");
+                }
+            }
+            System.out.println();
+        }
+        System.out.println(); // Bir satır boşluk ekleyerek düzeni artırır.
     }
     //Kullanıcıdan veri alarak oyunun devamlılığını sağlamak için sonsuz döngüye sokuyoruz.
     public void getUserInput() {
